@@ -12,8 +12,8 @@ def main():
         print(network.show_active())
         deployed = FundRaiser.deploy({'from':dev, "gas_price":gas_strategy})
         adr["address"] = deployed.address
-        with open('./build/deployments/deployAlfajores.json', 'w') as outfile: #lukrycyfa
-            json.dump(adr, outfile, indent=4) #lukrycyfa              
+        with open('./build/deployments/deployAlfajores.json', 'w') as outfile: 
+            json.dump(adr, outfile, indent=4)               
         return deployed
 
     # deploy contract on ganache
@@ -22,7 +22,7 @@ def main():
         owner = accounts[0]
         deployed = FundRaiser.deploy({'from':owner, "gas_price":gas_strategy})
         adr["address"] = deployed.address
-        with open('./build/deployments/deployLocal.json', 'w') as outfile: #lukrycyfa
-            json.dump(adr, outfile, indent=4) #lukrycyfa   
+        with open('./build/deployments/deployLocal.json', 'w') as outfile: 
+            json.dump(adr, outfile, indent=4)    
         return deployed
     
