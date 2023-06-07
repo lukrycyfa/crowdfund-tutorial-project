@@ -1,0 +1,22 @@
+project_structure:
+    build: build/contracts
+      
+autofetch_sources: True
+dotenv: .env
+
+networks:
+  default: development
+  alfajores:
+    verify: False
+    update_interval: 60
+    
+wallets:
+  from_key0: ${PRIVATE_KEY_OWNER}
+  from_key1: ${PRIVATE_KEY_ACC1}
+  from_key2: ${PRIVATE_KEY_ACC2}
+
+pinata_keys:
+  api_key: ${API_KEY}
+  secret_api_key: ${SECRET_API_KEY}    
+
+dev_deployment_artifacts: true
