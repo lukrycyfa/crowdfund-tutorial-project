@@ -1,4 +1,4 @@
-# Getting Started With CrowdFund-Tutorial-{roject}
+# Getting Started With CrowdFund-Tutorial-Project
 
 - This project was created To this [Crowdfund-Tutorial](https://github.com/lukrycyfa/crowdfund-tutorial-main) 
 
