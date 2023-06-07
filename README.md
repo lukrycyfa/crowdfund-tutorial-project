@@ -1,6 +1,6 @@
-# Getting Started With CrowdFund-Dapp
+# Getting Started With CrowdFund-Tutorial-{roject}
 
-- This project was created To this [Crowdfund-Tutorial](http://place-link-here) 
+- This project was created To this [Crowdfund-Tutorial](https://github.com/lukrycyfa/crowdfund-tutorial-main) 
 
 ## Requirements
 
@@ -18,7 +18,7 @@ npm install ganache --global
 ### Clone The project From This Repo
 
 ```bash
-git clone https://github.com/lukrycyfa/Crowdfund-Dapp.git
+git clone https://github.com/lukrycyfa/crowdfund-tutorial-project.git
 ```
 ### Cd Into The Root Directory
 
@@ -30,7 +30,7 @@ pip install -r requirements.txt
 ```bash
 brownie pm install OpenZeppelin/openzeppelin-contracts@4.8.2
 ```
-## Testing Contract On Ganache Local Network
+## Test The Contract On Ganache Local Network
 
 ### Start Ganache-cli On A Separate Terminal
 
@@ -50,7 +50,7 @@ brownie test tests/test_OnGanache.py
 ```
 
 
-## Testing The Contract On Celo Alfajores Network
+## Test The Contract On Celo Alfajores Network
 
 ### Add The Alfajores Network To Brownie
 
@@ -61,7 +61,7 @@ brownie networks add Alfajores alfajores host=https://alfajores-forno.celo-testn
 ### Add Your Metamask Private Key To The .env file in the root
 
 - create a .env file in the root directory
-- create three metamask accounts, export the private keys and update this keys
+- create three metamask accounts, export the private keys and update these keys
 
 ```yaml
 export PRIVATE_KEY_OWNER="Your Metamask Private Key One"
@@ -83,7 +83,7 @@ brownie test tests/test_OnAlfajores.py --network alfajores
 
 - This Project requires api keys from pinata ipfs for storing images and metadata so head over to [Pinata Ipfs](https://app.pinata.cloud/). Sign up with pinata, get a secret key and an api key instructions on that are found in the doc's [Authentication](https://docs.pinata.cloud/pinata-api/authentication).
 
-- To make use of these script's `./scripts/useFundsAlfajores.py` and `./scripts/useFundsLocal.py` you will need to go through the generative art section in the [tutorial](https://app.pinata.cloud/). Then update these key's below in your .env file.
+- To make use of these script's `./scripts/useFundsAlfajores.py` and `./scripts/useFundsLocal.py` you will need to go through the generative art section in the [tutorial](https://github.com/lukrycyfa/crowdfund-tutorial-main). Then update these key's below in your .env file.
 
 ```yaml
 export API_KEY=your api key
