@@ -2,44 +2,49 @@ import requests
 import json
 from brownie import config
 
-# Upload Images to Ipfs
 def upload_img_to_ipfs(img, img_name):
-    url = "https://api.pinata.cloud/pinning/pinFileToIPFS"
+    try:
+        url = "https://api.pinata.cloud/pinning/pinFileToIPFS"
 
-    payload={'pinataOptions': '{"cidVersion": 1}',
-    'pinataMetadata': '{"name": "MyFile", "keyvalues": {"company": "Pinata"}}'}
-    files=[
-    ('file',(img_name,img,'application/octet-stream'))
-    ]
-    headers = {'pinata_api_key':config["pinata_keys"]["api_key"], 
-    'pinata_secret_api_key':config["pinata_keys"]["secret_api_key"]}
+        payload={'pinataOptions': '{"cidVersion": 1}',
+        'pinataMetadata': '{"name": "MyFile", "keyvalues": {"company": "Pinata"}}'}
+        files=[
+        ('file',(img_name,img,'application/octet-stream'))
+        ]
+        headers = {'pinata_api_key':config["pinata_keys"]["api_key"], 
+        'pinata_secret_api_key':config["pinata_keys"]["secret_api_key"]}
 
-    response = requests.request("POST", url, headers=headers, data=payload, files=files)
-    print("Uploading Image To Ipfs.....")
-    res = response.json()
-    print(res['IpfsHash'], "image")
+        response = requests.request("POST", url, headers=headers, data=payload, files=files)
+        print("Uploading Image To Ipfs.....")
+        res = response.json()
+        print(res['IpfsHash'], "image")
 
-    return [f'https://gateway.pinata.cloud/ipfs/{res["IpfsHash"]}', response]
+        return [f'https://gateway.pinata.cloud/ipfs/{res["IpfsHash"]}', response]
+    except Exception as e:
+        print(e.args)  
 
 # Upload Metadata To Ipfs
 def upload_nft_meta(nft_meta):
-    url = "https://api.pinata.cloud/pinning/pinJSONToIPFS"
+    try:
+        url = "https://api.pinata.cloud/pinning/pinJSONToIPFS"
 
-    payload = json.dumps({
-    "pinataContent": nft_meta 
-    })
-    headers = {
-    'Content-Type': 'application/json',
-    'pinata_api_key':config["pinata_keys"]["api_key"], 
-    'pinata_secret_api_key':config["pinata_keys"]["secret_api_key"]
-    }
+        payload = json.dumps({
+        "pinataContent": nft_meta 
+        })
+        headers = {
+        'Content-Type': 'application/json',
+        'pinata_api_key':config["pinata_keys"]["api_key"], 
+        'pinata_secret_api_key':config["pinata_keys"]["secret_api_key"]
+        }
 
-    response = requests.request("POST", url, headers=headers, data=payload)
-    print("Uploading metadata To Ipfs.....")
-    res = response.json()
-    print(res['IpfsHash'], "metadata")
+        response = requests.request("POST", url, headers=headers, data=payload)
+        print("Uploading metadata To Ipfs.....")
+        res = response.json()
+        print(res['IpfsHash'], "metadata")
 
-    return [f'https://ipfs.io/ipfs/{res["IpfsHash"]}', response]
+        return [f'https://ipfs.io/ipfs/{res["IpfsHash"]}', response]
+    except Exception as e:
+        print(e.args) 
 
 # Takes Input For Donation Value
 def enterValDonation():
